@@ -130,11 +130,63 @@ _we will do a small project to start with the learning of typescript_
   ```
   C:\Users\Name User\Documents\Demo> tsc -w
   ```
-##  🛠️
+## Basic Types 🛠️
+_Like JavaScript and any other languages, TypeScript also provides basic data types to handle numbers, strings etc. Some common data types in TypeScript are: number, string, boolean, enum, void, null, undefined, any, never, Array and tuple._
+
+### number types
+_In TypeScript, numbers are floating point values having the type as number. You can assign any numeric values including decimals, hexadecimals, binary and octal literals. But to use binary and octal literals, you must use a TypeScript version which follows ECMAScript 2015 or higher._
+```ts
+let decimalValue: number = 10;
+let floatValue: number = 3.141516;
+let hexaDecimalValue: number = 0xf10b;
+let binaryValue: number = 0b110100;
+let octalValue: number = 0o410;
+```
+### string types
+_When you want to use textual data, the string types are used and is denoted by the keyword string. Like JavaScript, TypeScript also uses double quotes (") and single quotes (') to surround the string value._
+```ts
+let firstName: string = "Jorge"; // using double quotes
+let lastName: string = 'Perez'; // using single quotes
+```
+### boolean types
+_To use boolean data types in TypeScript, for declaring variables, use the boolean keyword. Here's a simple code to declare a boolean type variable_
+```ts
+let isMonday: boolean;
+isMonday = true;
+isMonday = false
+isMonday = 'not'//error just recieved boolean type
+```
+### enum types
+_A helpful addition to the standard set of datatypes from JavaScript is the enum. As in languages like C#, an enum is a way of giving more friendly names to sets of numeric values._
+```ts
+enum Gender { Female, Male }
+let human: Gender;
+human = Gender.Female;
+```
+### void types
+_In general, this type of data types are used in functions that do not return any value. For example, function showMessage(): void { ... }. In TypeScript, you can also declare a variable of type void, but can only assign undefined or null to them. We will discuss about undefined and null types in the next points._
+### any types
+_While writing code you are unsure of the data type of a value, due to its dynamic content, you can use the keyword any to declare the said variable. This is often useful when you are seeking input from user or a 3rd party library/service. This is also useful when you are declaring an array which has a mixed data type. It's just like the dynamic keyword available in C#._
+```ts
+let dynamicValue: any = "Kunal Chowdhury";
+dynamicValue = 100;
+dynamicValue = 0b1100101;
+dynamicValue = true;
+
+let dynamicList: any[] = [ "Kunal Chowdhury",
+                           "Free User",
+                           21,
+                           true
+                         ];
+```
+
+* [More Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) - oficial web TypeScript
+* [Examples](https://github.com/PaoloMoscoso/TypeScript/tree/master/Variables) - examples about this topic
+
+
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
 * [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
 
