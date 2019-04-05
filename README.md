@@ -183,22 +183,148 @@ let dynamicList: any[] = [ "Kunal Chowdhury",
 * [More Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) - oficial web TypeScript
 * [Examples](https://github.com/PaoloMoscoso/TypeScript/tree/master/Variables) - examples about this topic
 
+## Classes
+_Use the class keyword to declare a class in TypeScript. The syntax for the same is given below −_
+
+```ts
+class class_name { 
+   //class scope 
+```
+_The class keyword is followed by the class name. The rules for identifiers must be considered while naming a class. A class definition can include the following − Fields − A field is any variable declared in a class. Fields represent data pertaining to objects Constructors − Responsible for allocating memory for the objects of the class Functions − Functions represent actions an object can take. They are also at times referred to as methods These components put together are termed as the data members of the class_
+
+```ts
+//example how declaring class
+class Car { 
+   //field 
+   engine:string; 
+   
+   //constructor 
+   constructor(engine:string) { 
+      this.engine = engine 
+   }  
+   
+   //function 
+   disp():void { 
+      console.log("Function displays Engine is  :   "+this.engine) 
+   } 
+} 
+
+//create an object 
+var obj = new Car("XXSY1")
+
+//access the field 
+console.log("Reading attribute value Engine as :  "+obj.engine)  
+
+//access the function
+obj.disp()
+```
+* [Classes](https://github.com/PaoloMoscoso/TypeScript/tree/master/Classes) - Classes Examples
+### class Inheritance
+_TypeScript supports the concept of Inheritance. Inheritance is the ability of a program to create new classes from an existing class. The class that is extended to create newer classes is called the parent class/super class. The newly created classes are called the child/sub classes._
+_A class inherits from another class using the ‘extends’ keyword. Child classes inherit all properties and methods except private members and constructors from the parent class._
+* Syntax
+```ts
+class child_class_name extends parent_class_name
+```
+* how declaring class inheritance
+```ts
+class Shape { 
+   Area:number 
+   
+   constructor(a:number) { 
+      this.Area = a 
+   } 
+} 
+
+class Circle extends Shape { 
+   disp():void { 
+      console.log("Area of the circle:  "+this.Area) 
+   } 
+}
+  
+var obj = new Circle(223); 
+obj.disp()
+```
+* [More Examples](https://github.com/PaoloMoscoso/TypeScript/tree/master/Classes/Inheritance) - Classes inheritance
+
+### Classes overriding
+_Method Overriding is a mechanism by which the child class redefines the superclass’s method. The following example illustrates the same_
+```ts
+class PrinterClass { 
+   doPrint():void {
+      console.log("doPrint() from Parent called…") 
+   } 
+} 
+
+class StringPrinter extends PrinterClass { 
+   doPrint():void { 
+      super.doPrint() 
+      console.log("doPrint() is printing a string…")
+   } 
+} 
+
+var obj = new StringPrinter() 
+obj.doPrint()
+```
+
+### Accessors
+_TypeScript supports getters/setters as a way of intercepting accesses to a member of an object. This gives you a way of having finer-grained control over how a member is accessed on each object._
+* Example
+ * [Accesosrs](https://github.com/PaoloMoscoso/TypeScript/tree/master/Classes/) - getters/setters
+
+## Modules 
+_Modules are executed within their own scope, not in the global scope; this means that variables, functions, classes, etc. declared in a module are not visible outside the module unless they are explicitly exported using one of the export forms. Conversely, to consume a variable, function, class, interface, etc. exported from a different module, it has to be imported using one of the import forms._
+_validators.ts_
+```ts
+ import * as moment from 'moment' //import modul of thirds 
+ export  isWeekday(date: Date) => {
+ let weekDay = moment(day)
+    return weekDay.day !== 0 && weekDay.day !== 6  
+}
+
+export  isWeekday(date: Date) => {
+ let weekDay = moment(day)
+    return weekDay.day !== 0 && weekDay.day !== 6  
+}
+export foo(variable: string) {
+ return variable
+}
+```
+_test.ts_
+```ts
+import {isWeekday, foo} from "validators"
+function day () {
+    today = new Date();
+    const variable = isWeekday(today) ? 'weekday' : 'weekend' 
+    console.log(`today is ${variable}`);
+}
+day();
+```
+## Interface
+
+_The interfaces in TypeScript are declared in a manner quite similar to that of the classes, indicating the list of properties and methods they will contain. There is only one fundamental detail, that the properties can not have values and the methods can not have a code for their implementation._
+
+_interfaceExample.ts_
+```ts
+interface submersibleInterface {
+  MaxTimeUnderWater: number;
+  depthMaximum: number;
+  waterRepel (): void;
+}
 
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
+class submersibleWatch  implements submersible Interface {
+  MaxTimeUnderWater = 1;
+  depthMaximum  = 10;
+  waterRepel () {
+    console.log ('The water slips me');
+  }
+}
+```
+_The interface causes that it is necessary to declare all the properties and implement all the methods when defining the class. In short, it's like a contract._
+* Example
+ * [Interface Example](https://github.com/PaoloMoscoso/TypeScript/tree/master/Interface) - Interface whit class Inheritance and Enum
 
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+## Author ✒️
 
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
+* **Paolo Vicente Moscoso** - *Initial Work* - [Moscoso](https://github.com/PaoloMoscoso/)
